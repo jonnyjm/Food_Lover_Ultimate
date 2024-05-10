@@ -1,0 +1,66 @@
+The customer class has the following properties
+
+1.	Registered customers who can browse/search, order, and vote (lowest 1 star to highest 5 stars) on food delivered (on food and delivery quality/manners individually); can start/participate in a discussion topic on cooks/dishes/deliver people.A customer can choose to 1) eat the food in the store, 2) pick up the dishes by themselves, or 3) by delivery. For 1) s/he needs to fix the available time and seating in the store; for case 1) and 2) s/he can only complain/compliment the chef.
+2.	Customers can file complaints/compliments to a chef of the food they purchased and the person who delivered the dish or other customers who didn’t behave in the discussion forums. Delivery person can complain/compliment customers s/he delivered dishes, all are handled by the manager. The complained person has the right to dispute the complaint, the manager made the final call to dismiss the complaint or convert it to one formal warning and inform the impacted parties. Customers/delivery people whose complaints are decided without merit by the manager will receive one warning.
+3.	Registered customers having 2 warnings are de-registered. VIPs having 2 warnings are put back to registered customers (with warnings cleared). The warnings should be displayed on the personalized page when the customers log in.
+4.	If the price of the order is more expensive than the deposited money in the account, the order is frozen until the customer puts more money in the account.
+5.	Customers who are kicked out of the system or choose to quit the system will be handled by the manager: clear the deposit and close the account.
+6.	The chef is the one who puts in the description and keywords for people to search and browse. The average ratings for each food/dish by customers are available for all. 
+
+Generate a mongodb document file for this class
+
+Output:
+
+```json
+{
+    "_id": "<ObjectId>",
+    "username": "<String>",
+    "registered": "<Boolean>",
+    "warnings": "<Number>",
+    "deposit": "<Number>",
+    "orders": [
+        {
+            "orderId": "<ObjectId>",
+            "foodId": "<ObjectId>",
+            "deliveryMethod": "<String>",
+            "price": "<Number>",
+            "status": "<String>",
+            "rating": {
+                "food": "<Number>",
+                "delivery": "<Number>"
+            },
+            "complaintsOrCompliments": {
+                "chef": "<String>",
+                "deliveryPerson": "<String>"
+            }
+        }
+    ],
+    "discussions": [
+        {
+            "discussionId": "<ObjectId>",
+            "topic": "<String>",
+            "comments": "<String>"
+        }
+    ],
+    "complaintsOrComplimentsReceived": [
+        {
+            "from": "<ObjectId>",
+            "type": "<String>",
+            "content": "<String>",
+            "status": "<String>"
+        }
+    ]
+}
+```
+
+In this structure:
+- `_id` is a unique identifier for each customer.
+- `username` is the customer's username.
+- `registered` is a boolean indicating whether the customer is registered.
+- `warnings` is the number of warnings the customer has received.
+- `deposit` is the amount of money the customer has deposited.
+- `orders` is an array of orders placed by the customer. Each order includes the order ID, food ID, delivery method, price, status, ratings for the food and delivery, and any complaints or compliments about the chef or delivery person.
+- `discussions` is an array of discussions the customer has participated in. Each discussion includes the discussion ID, topic, and comments.
+- `complaintsOrComplimentsReceived` is an array of complaints or compliments received by the customer. Each entry includes who it's from, the type (complaint or compliment), the content, and the status (e.g., "dismissed", "warning issued").
+
+Please note that this is a basic structure and might need to be adjusted based on your specific needs and the relationships between different entities in your application. For example, you might want to use references (`ObjectId`) to link related documents (e.g., linking an order to a specific food item or chef). Also, remember to replace `<ObjectId>`, `<String>`, `<Boolean>`, and `<Number>` with actual values or data types as per your application's requirements.
