@@ -49,11 +49,6 @@ The **Food Lover App** is a simple application built using PyQt5 and MongoDB. It
    python main.py
    ```
 
-## Screenshots
-
-![Login Screen](screenshots/login_screen.png)
-![Registration Screen](screenshots/registration_screen.png)
-
 ## Credits
 
 - Developed by [Team F]
