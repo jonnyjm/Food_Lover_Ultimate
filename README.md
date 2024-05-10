@@ -4,7 +4,7 @@ Certainly! Below is a generated README page for the provided `main.py` file. You
 
 # Food Lover App
 
-The **Food Lover App** is a simple application built using PyQt5 and MongoDB. It allows users to log in, register, and interact with food-related content.
+FoodLover is a comprehensive software solution designed to boost the food ordering and delivery process for both customers and food stores. This section provides an overview of the system’s key features including its purpose, functions, characteristics and dependencies.
 
 ## Features
 
