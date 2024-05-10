@@ -1,7 +1,3 @@
-Certainly! Below is a generated README page for the provided `main.py` file. You can use this as a starting point and customize it further to suit your project:
-
----
-
 # Food Lover App
 
 FoodLover is a comprehensive software solution designed to boost the food ordering and delivery process for both customers and food stores. This section provides an overview of the system’s key features including its purpose, functions, characteristics and dependencies.
