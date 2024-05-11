@@ -43,6 +43,10 @@ class MainWindow(QMainWindow):
                     self.store_login = StoreLogin()
                     self.store_login.show()
                     self.close()
+
+                else:
+                    return
+
             else:
                 self.login_error.setText("Password is incorrect!")
         
@@ -96,13 +100,33 @@ class RegisterWindow(QMainWindow):
             }
             user_data.insert(new_user)
 
-
 class UserLogin(QMainWindow): # succesful user login window
     def __init__(self):
         super().__init__()
         uic.loadUi("user_main.ui", self)
         self.setWindowTitle("Food Lover")                
         
+class StoreLogin(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("store_main.ui", self)
+        self.setWindowTitle("Food Lover")
+
+        self.manager_btn.clicked.connect(self.manager_login)
+        # self.chef_btn.clicked.connect(self.chef_login)
+        # self.delivery_btn.clicked.connect(self.deliver_login)
+        # self.importer_btn.clicked.connect(self.importer_login)
+
+    def getID(self):
+        text, dialog = QInputDialog.getText(self, "ID", "Enter your ID:")
+        return text;
+    
+    def manager_login(self):
+        employee_id = self.getID()
+        if employee_id == "1214": # this will be the managers ID
+            print(RIPEEE)
+        else:
+            QMessageBox.information(self, "Information", "ID is incorrect")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

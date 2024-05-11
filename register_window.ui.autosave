@@ -202,9 +202,9 @@ background-color: black;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>560</y>
+      <y>540</y>
       <width>801</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
