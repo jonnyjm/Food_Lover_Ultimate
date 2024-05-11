@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\jonny\OneDrive\Documents\redo\register_window.ui'
+# Form implementation generated from reading ui file 'c:\Users\jonny\OneDrive\Documents\Food_Lover_Ultimate\register_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -16,6 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(800, 600))
         MainWindow.setStyleSheet("color: black;\n"
 "background-color: white;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -29,7 +30,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.label.setText("")
         self.label.setTextFormat(QtCore.Qt.PlainText)
-        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\jonny\\OneDrive\\Documents\\redo\\Images/food_lover.ico"))
+        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\jonny\\OneDrive\\Documents\\Food_Lover_Ultimate\\Images/food_lover.ico"))
         self.label.setScaledContents(False)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
@@ -98,7 +99,7 @@ class Ui_MainWindow(object):
         self.back_btn.setGeometry(QtCore.QRect(0, 0, 51, 51))
         self.back_btn.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\jonny\\OneDrive\\Documents\\redo\\Images/arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\jonny\\OneDrive\\Documents\\Food_Lover_Ultimate\\Images/arrow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.back_btn.setIcon(icon)
         self.back_btn.setIconSize(QtCore.QSize(50, 50))
         self.back_btn.setObjectName("back_btn")
