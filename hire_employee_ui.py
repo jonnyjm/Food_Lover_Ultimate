@@ -19,6 +19,59 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QtCore.QSize(349, 364))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(80, 90, 181, 204))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.name = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.name.setStyleSheet("border: 2px solid orange; border-radius: 10px;\n"
+"background-color:white;")
+        self.name.setAlignment(QtCore.Qt.AlignCenter)
+        self.name.setObjectName("name")
+        self.verticalLayout.addWidget(self.name)
+        self.position = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.position.setStyleSheet("border: 2px solid orange; border-radius: 10px;\n"
+"background-color:white;")
+        self.position.setAlignment(QtCore.Qt.AlignCenter)
+        self.position.setObjectName("position")
+        self.verticalLayout.addWidget(self.position)
+        self.pay = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.pay.setStyleSheet("border: 2px solid orange; border-radius: 10px;\n"
+"background-color:white;")
+        self.pay.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.pay.setObjectName("pay")
+        self.verticalLayout.addWidget(self.pay)
+        self.ident = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.ident.setStyleSheet("border: 2px solid orange; border-radius: 10px;\n"
+"background-color:white;")
+        self.ident.setText("")
+        self.ident.setAlignment(QtCore.Qt.AlignCenter)
+        self.ident.setObjectName("ident")
+        self.verticalLayout.addWidget(self.ident)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.err_label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.err_label.setStyleSheet("color:rgb(162, 0, 0)")
+        self.err_label.setText("")
+        self.err_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.err_label.setObjectName("err_label")
+        self.verticalLayout.addWidget(self.err_label)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 20px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.btn.setObjectName("btn")
+        self.verticalLayout.addWidget(self.btn)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -27,3 +80,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.name.setPlaceholderText(_translate("MainWindow", "Name"))
+        self.position.setPlaceholderText(_translate("MainWindow", "Position"))
+        self.pay.setPlaceholderText(_translate("MainWindow", "Pay ($)"))
+        self.ident.setPlaceholderText(_translate("MainWindow", "Employee ID"))
+        self.btn.setText(_translate("MainWindow", "Hire Employee"))
