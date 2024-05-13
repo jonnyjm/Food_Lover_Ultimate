@@ -202,17 +202,22 @@ background-color: white; border: 2px solid </string>
        </property>
        <item>
         <property name="text">
-         <string>Customer Account</string>
+         <string>Customer</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Store Account</string>
+         <string>Store</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Surfer Account</string>
+         <string>Surfer</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Manager</string>
         </property>
        </item>
       </widget>

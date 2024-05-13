@@ -78,6 +78,7 @@ class RegisterWindow(QMainWindow):
         name = self.name_reg.text()
         email = self.email_reg.text()
         pw = self.pw_reg.text()
+        type = self.acc_type.currentText()
 
         if email == "" or pw == "" or name == "":
             self.reg_error.setText("Please enter valid credentials!")
@@ -92,12 +93,12 @@ class RegisterWindow(QMainWindow):
                 "name": name,
                 "email": email,
                 "password": pw,
-                "type": "customer",
+                "type": type,
                 "status": "regular",
                 "complaints": 0,
-                "deposit": 0
+                "deposit": 100
             }
-            user_data.insertOne(new_user)
+            user_data.insert_one(new_user)
 
 
 class UserLogin(QMainWindow): # succesful user login window

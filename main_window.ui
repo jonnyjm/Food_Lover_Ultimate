@@ -190,7 +190,7 @@
       <x>320</x>
       <y>330</y>
       <width>171</width>
-      <height>110</height>
+      <height>112</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -244,6 +244,9 @@ QPushButtonHover {
      </item>
      <item row="2" column="0" colspan="2">
       <widget class="QPushButton" name="surf_btn">
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid orange; border-radius: 10px;</string>
+       </property>
        <property name="text">
         <string/>
        </property>
