@@ -48,7 +48,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../Desktop/Food_Lover/Images/food_lover.ico</pixmap>
+        <pixmap>Images/food_lover.ico</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -192,13 +192,33 @@
        </property>
       </widget>
      </item>
+<<<<<<< HEAD
+=======
+     <item>
+      <widget class="QLabel" name="login_error">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 96, 96);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+>>>>>>> 8ecd7557dfd92d38f69c4f4a9ade670643ec1f45
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>320</x>
+<<<<<<< HEAD
       <y>330</y>
+=======
+      <y>320</y>
+>>>>>>> 8ecd7557dfd92d38f69c4f4a9ade670643ec1f45
       <width>171</width>
       <height>71</height>
      </rect>

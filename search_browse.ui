@@ -36,11 +36,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel {
-	border-bottom: 3px solid orange;
-	border-top: 3px solid orange;
-    border-radius: 100%;
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
