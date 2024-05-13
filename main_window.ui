@@ -38,7 +38,7 @@
       <x>0</x>
       <y>12</y>
       <width>801</width>
-      <height>222</height>
+      <height>221</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -55,19 +55,6 @@
        </property>
        <property name="textInteractionFlags">
         <set>Qt::NoTextInteraction</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>food_lover.png</pixmap>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -144,22 +131,12 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>230</y>
+      <y>250</y>
       <width>261</width>
-      <height>91</height>
+      <height>96</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QLabel" name="login_error">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QLineEdit" name="main_email_entry">
        <property name="styleSheet">
@@ -192,8 +169,6 @@
        </property>
       </widget>
      </item>
-<<<<<<< HEAD
-=======
      <item>
       <widget class="QLabel" name="login_error">
        <property name="styleSheet">
@@ -207,33 +182,18 @@
        </property>
       </widget>
      </item>
->>>>>>> 8ecd7557dfd92d38f69c4f4a9ade670643ec1f45
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>320</x>
-<<<<<<< HEAD
       <y>330</y>
-=======
-      <y>320</y>
->>>>>>> 8ecd7557dfd92d38f69c4f4a9ade670643ec1f45
       <width>171</width>
-      <height>71</height>
+      <height>110</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="styleSheet">
-        <string notr="true">color: black;</string>
-       </property>
-       <property name="text">
-        <string>Not registered ?</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1">
       <widget class="QPushButton" name="register_btn">
        <property name="styleSheet">
@@ -269,6 +229,33 @@ QPushButtonHover {
        </property>
        <property name="text">
         <string>Login</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">color: black;</string>
+       </property>
+       <property name="text">
+        <string>Not registered ?</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QPushButton" name="surf_btn">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/surf.png</normaloff>Images/surf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
        </property>
       </widget>
      </item>
