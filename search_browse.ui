@@ -60,6 +60,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit {
 	border: none;
@@ -86,19 +92,17 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    /* Remove background color (transparent) */
 	color: orange;
     background: transparent;
-    /* Border thickness, line style, and color (orange border) */
     border: 2px solid orange;
-    /* Add rounded corners to make it pill-shaped */
     border-radius: 16px;
-    /* Additional styling (padding, margin, etc.) as needed */
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
+}
+
+QPushButtonHover {
+	color: white;
+    background: orange;
+    border: 2px solid orange;
+    border-radius: 16px;
 }</string>
     </property>
     <property name="text">

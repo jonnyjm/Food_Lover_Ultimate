@@ -1,4 +1,5 @@
 import sys
+from tkinter import NO
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5 import QtGui
@@ -35,7 +36,7 @@ class MainWindow(QMainWindow):
 
             if user["password"] == password: 
                 if user["type"] == "customer":
-                    self.customer_login = UserLogin()
+                    self.customer_login = UserLogin(email)
                     self.customer_login.show()
                     self.close()
                 
@@ -102,13 +103,29 @@ class RegisterWindow(QMainWindow):
                 "deposit": 0
             }
             user_data.insert_one(new_user)
+            
+            #return to main window
+            self.main_window = MainWindow()
+            self.main_window.show()
+            self.close()
+            
 
 
 class UserLogin(QMainWindow): # succesful user login window
-    def __init__(self):
+    def __init__(self, user):
         super().__init__()
         uic.loadUi("search_browse.ui", self)
-        self.setWindowTitle("Food Lover")                
+        self.setWindowTitle("Food Lover")
+        
+        user_data = db['login_data']
+        user_info = user_data.find_one({"email": user})
+
+        if user_info:
+            # Update QLabel with user name
+            self.name.setText(user_info["name"])
+        
+
+                        
         
 class StoreLogin(QMainWindow): # store login that has access to all the different functions for workers
     def __init__(self):
