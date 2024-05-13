@@ -96,7 +96,7 @@ class RegisterWindow(QMainWindow):
                 "type": type,
                 "status": "regular",
                 "complaints": 0,
-                "deposit": 100
+                "deposit": 0
             }
             user_data.insert_one(new_user)
 
@@ -104,7 +104,7 @@ class RegisterWindow(QMainWindow):
 class UserLogin(QMainWindow): # succesful user login window
     def __init__(self):
         super().__init__()
-        uic.loadUi("user_main.ui", self)
+        uic.loadUi("search_browse.ui", self)
         self.setWindowTitle("Food Lover")                
         
 class StoreLogin(QMainWindow): # store login that has access to all the different functions for workers
