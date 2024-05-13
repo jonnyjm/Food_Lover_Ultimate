@@ -102,7 +102,7 @@ class RegisterWindow(QMainWindow):
                 "deposit": deposit,
                 "status": "N/A"
             }
-            user_data.insertOne(new_user)
+            user_data.insert_one(new_user)
 
 
 class UserLogin(QMainWindow): # succesful user login window
