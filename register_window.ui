@@ -181,45 +181,19 @@ background-color: white;</string>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="acc_type">
-       <property name="font">
-        <font>
-         <hintingpreference>PreferFullHinting</hintingpreference>
-        </font>
-       </property>
+      <widget class="QLineEdit" name="init_deposit">
        <property name="styleSheet">
-        <string notr="true">color: black;
-background-color: white; border: 2px solid </string>
+        <string notr="true">border: 2px solid orange; border-radius: 10px;</string>
        </property>
-       <property name="editable">
-        <bool>false</bool>
-       </property>
-       <property name="currentText">
+       <property name="text">
         <string/>
        </property>
-       <property name="placeholderText">
-        <string>Account Type</string>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
-       <item>
-        <property name="text">
-         <string>Customer</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Store</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Surfer</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Manager</string>
-        </property>
-       </item>
+       <property name="placeholderText">
+        <string>Initial Deposit</string>
+       </property>
       </widget>
      </item>
      <item>

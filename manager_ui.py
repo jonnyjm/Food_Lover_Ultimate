@@ -47,14 +47,14 @@ class Ui_MainWindow(object):
 "} \n"
 "\n"
 "QTabBar::tab {\n"
-"  background: black; \n"
+"  background: rgb(239, 159, 0); \n"
 "color:white;\n"
-"  border: 1px solid black; \n"
+"  border: 1px solid rgb(239, 159, 0); \n"
 "  padding: 15px;\n"
 "} \n"
 "\n"
 "QTabBar::tab:selected { \n"
-"  background: rgb(79, 79, 79); \n"
+"  background: rgb(172, 115, 0); \n"
 "  margin-bottom: -1px; \n"
 "}")
         self.tabWidget.setTabPosition(QtWidgets.QTabWidget.North)
@@ -83,40 +83,95 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.Home, "")
         self.worker_tab = QtWidgets.QWidget()
         self.worker_tab.setObjectName("worker_tab")
-        self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.worker_tab)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(180, 80, 411, 301))
-        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.view_complaints_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.worker_tab)
+        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(610, 210, 160, 135))
+        self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_4)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.id_num = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.view_complaints_btn.setFont(font)
-        self.view_complaints_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid;")
-        self.view_complaints_btn.setObjectName("view_complaints_btn")
-        self.verticalLayout_3.addWidget(self.view_complaints_btn)
-        self.hire_workers_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.id_num.setFont(font)
+        self.id_num.setStyleSheet("border: 2px solid orange; border-radius: 10px;\n"
+"background-color:white;")
+        self.id_num.setAlignment(QtCore.Qt.AlignCenter)
+        self.id_num.setObjectName("id_num")
+        self.verticalLayout_4.addWidget(self.id_num)
+        self.error_label = QtWidgets.QLabel(self.verticalLayoutWidget_4)
+        self.error_label.setStyleSheet("color:rgb(162, 0, 0)")
+        self.error_label.setText("")
+        self.error_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.error_label.setObjectName("error_label")
+        self.verticalLayout_4.addWidget(self.error_label)
+        self.change_wage = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
+        self.change_wage.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.change_wage.setObjectName("change_wage")
+        self.verticalLayout_4.addWidget(self.change_wage)
+        self.fire_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
+        self.fire_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.fire_btn.setObjectName("fire_btn")
+        self.verticalLayout_4.addWidget(self.fire_btn)
+        self.worker_table = QtWidgets.QTableWidget(self.worker_tab)
+        self.worker_table.setGeometry(QtCore.QRect(0, 10, 591, 481))
         font = QtGui.QFont()
-        font.setPointSize(12)
-        self.hire_workers_btn.setFont(font)
-        self.hire_workers_btn.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.hire_workers_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid;")
-        self.hire_workers_btn.setObjectName("hire_workers_btn")
-        self.verticalLayout_3.addWidget(self.hire_workers_btn)
-        self.wages_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.wages_btn.setFont(font)
-        self.wages_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid;")
-        self.wages_btn.setObjectName("wages_btn")
-        self.verticalLayout_3.addWidget(self.wages_btn)
+        font.setKerning(True)
+        self.worker_table.setFont(font)
+        self.worker_table.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.worker_table.setStyleSheet("QTableWidget {\n"
+"    border: 2px solid white;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"}")
+        self.worker_table.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.worker_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.worker_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.worker_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.worker_table.setObjectName("worker_table")
+        self.worker_table.setColumnCount(5)
+        self.worker_table.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.worker_table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.worker_table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.worker_table.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.worker_table.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.worker_table.setHorizontalHeaderItem(4, item)
         self.tabWidget.addTab(self.worker_tab, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -130,7 +185,17 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Copyright: Team F"))
         self.welcome_manager_txt.setText(_translate("MainWindow", "Welcome Manager !"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Home), _translate("MainWindow", "Home"))
-        self.view_complaints_btn.setText(_translate("MainWindow", "View Complaints"))
-        self.hire_workers_btn.setText(_translate("MainWindow", "Hire/Fire Workers"))
-        self.wages_btn.setText(_translate("MainWindow", "Wages"))
+        self.id_num.setPlaceholderText(_translate("MainWindow", "Enter Worker ID"))
+        self.change_wage.setText(_translate("MainWindow", "Change Wages"))
+        self.fire_btn.setText(_translate("MainWindow", "Fire Employee"))
+        item = self.worker_table.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Position"))
+        item = self.worker_table.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Name"))
+        item = self.worker_table.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "ID"))
+        item = self.worker_table.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Wage"))
+        item = self.worker_table.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Rating"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.worker_tab), _translate("MainWindow", "Workers"))
