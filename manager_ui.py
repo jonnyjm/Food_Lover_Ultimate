@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         self.worker_tab = QtWidgets.QWidget()
         self.worker_tab.setObjectName("worker_tab")
         self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.worker_tab)
-        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(610, 210, 160, 135))
+        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(610, 20, 160, 451))
         self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_4)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -130,6 +130,33 @@ class Ui_MainWindow(object):
 "}")
         self.fire_btn.setObjectName("fire_btn")
         self.verticalLayout_4.addWidget(self.fire_btn)
+        self.refresh = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
+        self.refresh.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.refresh.setObjectName("refresh")
+        self.verticalLayout_4.addWidget(self.refresh)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem)
+        self.hire_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
+        self.hire_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 20px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.hire_btn.setObjectName("hire_btn")
+        self.verticalLayout_4.addWidget(self.hire_btn)
         self.worker_table = QtWidgets.QTableWidget(self.worker_tab)
         self.worker_table.setGeometry(QtCore.QRect(0, 10, 591, 481))
         font = QtGui.QFont()
@@ -159,6 +186,8 @@ class Ui_MainWindow(object):
         self.worker_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.worker_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.worker_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.worker_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.worker_table.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         self.worker_table.setObjectName("worker_table")
         self.worker_table.setColumnCount(5)
         self.worker_table.setRowCount(0)
@@ -188,6 +217,8 @@ class Ui_MainWindow(object):
         self.id_num.setPlaceholderText(_translate("MainWindow", "Enter Worker ID"))
         self.change_wage.setText(_translate("MainWindow", "Change Wages"))
         self.fire_btn.setText(_translate("MainWindow", "Fire Employee"))
+        self.refresh.setText(_translate("MainWindow", "Refresh"))
+        self.hire_btn.setText(_translate("MainWindow", "Hire Employee"))
         item = self.worker_table.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Position"))
         item = self.worker_table.horizontalHeaderItem(1)
