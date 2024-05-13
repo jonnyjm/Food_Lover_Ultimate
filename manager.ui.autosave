@@ -156,9 +156,9 @@ QTabBar::tab:selected {
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>210</y>
+        <y>20</y>
         <width>160</width>
-        <height>135</height>
+        <height>451</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -229,6 +229,37 @@ QPushButtonHover {
          </property>
          <property name="text">
           <string>Fire Employee</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="hire_btn">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 20px solid orange;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
+         </property>
+         <property name="text">
+          <string>Hire Employee</string>
          </property>
         </widget>
        </item>

@@ -84,6 +84,8 @@ class Ui_MainWindow(object):
         self.login_error.setAlignment(QtCore.Qt.AlignCenter)
         self.login_error.setObjectName("login_error")
         self.verticalLayout_3.addWidget(self.login_error)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem2)
         self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(320, 330, 171, 110))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")

@@ -78,9 +78,14 @@ class RegisterWindow(QMainWindow):
         name = self.name_reg.text()
         email = self.email_reg.text()
         pw = self.pw_reg.text()
+        deposit = self.init_deposit.text()
 
-        if email == "" or pw == "" or name == "":
+        if email == "" or pw == "" or name == "" or deposit == "":
             self.reg_error.setText("Please enter valid credentials!")
+            return
+
+        if not(deposit.isnumeric()):
+            self.reg_error.setText("Please use numbers for deposit")
             return
     
         user_data = db['login_data']
@@ -93,9 +98,9 @@ class RegisterWindow(QMainWindow):
                 "email": email,
                 "password": pw,
                 "type": "customer",
-                "status": "regular",
                 "complaints": 0,
-                "deposit": 0
+                "deposit": deposit,
+                "status": "N/A"
             }
             user_data.insertOne(new_user)
 
