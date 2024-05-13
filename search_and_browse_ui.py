@@ -81,13 +81,10 @@ class Ui_MainWindow(object):
         font.setStrikeOut(False)
         self.searchButton.setFont(font)
         self.searchButton.setStyleSheet("QPushButton {\n"
-"    /* Remove background color (transparent) */\n"
+"    color: orange;\n"
 "    background: transparent;\n"
-"    /* Border thickness, line style, and color (orange border) */\n"
 "    border: 2px solid orange;\n"
-"    /* Add rounded corners to make it pill-shaped */\n"
 "    border-radius: 16px;\n"
-"    /* Additional styling (padding, margin, etc.) as needed */\n"
 "    padding: 10px 20px;\n"
 "    text-align: center;\n"
 "    text-decoration: none;\n"

@@ -38,23 +38,10 @@
       <x>0</x>
       <y>12</y>
       <width>801</width>
-      <height>185</height>
+      <height>222</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -72,23 +59,84 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <family>Lato</family>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: black;</string>
-       </property>
+      <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Welcome to Food Lover</string>
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>food_lover.png</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <family>Lato</family>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Welcome to</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <family>Lato</family>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	color: orange;
+}</string>
+         </property>
+         <property name="text">
+          <string>Food Lover</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -96,14 +144,27 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>200</y>
+      <y>230</y>
       <width>261</width>
       <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
+      <widget class="QLabel" name="login_error">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLineEdit" name="main_email_entry">
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid orange; border-radius: 10px;</string>
+       </property>
        <property name="echoMode">
         <enum>QLineEdit::Normal</enum>
        </property>
@@ -117,6 +178,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="main_pw_entry">
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid orange; border-radius: 10px</string>
+       </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
        </property>
@@ -128,45 +192,18 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="login_error">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>300</y>
+      <y>330</y>
       <width>171</width>
-      <height>118</height>
+      <height>71</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" colspan="2">
-      <widget class="QPushButton" name="login_btn">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-	background-color: rgb(0, 0, 0);
-	color: white
-}
-
-QPushButtonHover {
-	background-color: rgb(57, 57, 57);
-}</string>
-       </property>
-       <property name="text">
-        <string>Login</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_3">
        <property name="styleSheet">
@@ -180,31 +217,38 @@ QPushButtonHover {
      <item row="1" column="1">
       <widget class="QPushButton" name="register_btn">
        <property name="styleSheet">
-        <string notr="true">color: white;
-background-color: rgb(0, 0, 0);</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 2px solid orange;
+	border-radius: 10px;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
         <string>Register</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="2">
-      <widget class="QPushButton" name="surf_btn">
+     <item row="0" column="0" colspan="2">
+      <widget class="QPushButton" name="login_btn">
        <property name="styleSheet">
-        <string notr="true">color: black;</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 2px solid orange;
+	border-radius: 10px;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>Images/surf.png</normaloff>Images/surf.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
+        <string>Login</string>
        </property>
       </widget>
      </item>
@@ -223,7 +267,7 @@ background-color: rgb(0, 0, 0);</string>
      <item>
       <widget class="QLabel" name="label_4">
        <property name="styleSheet">
-        <string notr="true">color: black;</string>
+        <string notr="true">color: orange;</string>
        </property>
        <property name="text">
         <string>Copyright: Group F</string>

@@ -39,7 +39,8 @@ class MainWindow(QMainWindow):
                 self.login_error.setText("Password is incorrect!")
         
         else:
-            self.login_error.setText("User not found!")
+            self.login_error.setText("User not found!") 
+
 
     def register(self):
         self.register_window = RegisterWindow()
@@ -80,7 +81,7 @@ class RegisterWindow(QMainWindow):
                 "password": pw,
                 "type": "customer"
             }
-            user_data.insert(new_user)
+            user_data.insertOne(new_user)
             
         
         
