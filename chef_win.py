@@ -14,6 +14,7 @@ class ChefWin(QMainWindow):
     def __init__(self):
         super(ChefWin, self).__init__()
         uic.loadUi("chef.ui", self)
+        self.setWindowTitle("Chef Menu")
 
         self.menu()
 
