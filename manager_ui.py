@@ -130,6 +130,8 @@ class Ui_MainWindow(object):
 "}")
         self.fire_btn.setObjectName("fire_btn")
         self.verticalLayout_4.addWidget(self.fire_btn)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem)
         self.refresh = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
         self.refresh.setStyleSheet("QPushButton {\n"
 "    background-color: orange;\n"
@@ -143,8 +145,8 @@ class Ui_MainWindow(object):
 "}")
         self.refresh.setObjectName("refresh")
         self.verticalLayout_4.addWidget(self.refresh)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem1)
         self.hire_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
         self.hire_btn.setStyleSheet("QPushButton {\n"
 "    background-color: orange;\n"
@@ -202,6 +204,87 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.worker_table.setHorizontalHeaderItem(4, item)
         self.tabWidget.addTab(self.worker_tab, "")
+        self.user_tab = QtWidgets.QWidget()
+        self.user_tab.setObjectName("user_tab")
+        self.user_table = QtWidgets.QTableWidget(self.user_tab)
+        self.user_table.setGeometry(QtCore.QRect(0, 0, 601, 481))
+        font = QtGui.QFont()
+        font.setKerning(True)
+        self.user_table.setFont(font)
+        self.user_table.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.user_table.setStyleSheet("QTableWidget {\n"
+"    border: 2px solid white;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"}")
+        self.user_table.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.user_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.user_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.user_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.user_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.user_table.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.user_table.setObjectName("user_table")
+        self.user_table.setColumnCount(4)
+        self.user_table.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.user_table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.user_table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.user_table.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.user_table.setHorizontalHeaderItem(3, item)
+        self.user_table.horizontalHeader().setSortIndicatorShown(False)
+        self.user_table.horizontalHeader().setStretchLastSection(True)
+        self.user_table.verticalHeader().setSortIndicatorShown(False)
+        self.user_table.verticalHeader().setStretchLastSection(False)
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.user_tab)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(620, 10, 160, 381))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.promote_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.promote_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.promote_btn.setObjectName("promote_btn")
+        self.verticalLayout_3.addWidget(self.promote_btn)
+        self.ref_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.ref_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.ref_btn.setObjectName("ref_btn")
+        self.verticalLayout_3.addWidget(self.ref_btn)
+        self.tabWidget.addTab(self.user_tab, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -230,3 +313,14 @@ class Ui_MainWindow(object):
         item = self.worker_table.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Rating"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.worker_tab), _translate("MainWindow", "Workers"))
+        item = self.user_table.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Name"))
+        item = self.user_table.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Deposit"))
+        item = self.user_table.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Status"))
+        item = self.user_table.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Email"))
+        self.promote_btn.setText(_translate("MainWindow", "Promote Customer"))
+        self.ref_btn.setText(_translate("MainWindow", "Refresh"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.user_tab), _translate("MainWindow", "Users"))

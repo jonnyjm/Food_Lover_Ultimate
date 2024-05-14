@@ -6,23 +6,28 @@ from pymongo import MongoClient
 
 client = MongoClient("mongodb+srv://foodlover:CDOG2CI3GApYWkJv@foodlover.xagchl4.mongodb.net/")
 db = client['users']
+users = db['login_data']
 workers = db['workers']
 
-class MainWindow(QMainWindow):
+class ManagerWindow(QMainWindow):
 
     def __init__(self):
-        super(MainWindow, self).__init__()
+        super(ManagerWindow, self).__init__()
         uic.loadUi("manager.ui", self)
         manager = workers.find_one({'position': 'Manager'})
+        self.setWindowTitle("Manager Menu")
         self.welcome_manager_txt.setText("Welcome, " + manager['name']) # type: ignore
-        self.loadData()
+        self.loadWorkerData()
+        self.loadUserData()
+        self.setFocus()
 
+        self.promote_btn.clicked.connect(self.promote)
         self.change_wage.clicked.connect(self.changeWage)
         self.fire_btn.clicked.connect(self.fireEMPL)
         self.hire_btn.clicked.connect(self.hire)
-        self.refresh.clicked.connect(self.loadData)
-
-    def loadData(self):
+        self.refresh.clicked.connect(self.loadWorkerData)
+        self.ref_btn.clicked.connect(self.loadUserData)
+    def loadWorkerData(self):
         data = list(workers.find())
 
         self.worker_table.setRowCount(len(data))
@@ -39,6 +44,20 @@ class MainWindow(QMainWindow):
             self.worker_table.setItem(row, 3, wage_item)
             self.worker_table.setItem(row, 4, rating_item)
     
+    def loadUserData(self):
+        data = list(users.find())
+        self.user_table.setRowCount(len(data))
+        for row, item in enumerate(data):
+            name_item = QTableWidgetItem(item["name"])
+            deposit_item = QTableWidgetItem(str(item['deposit']))
+            status_item = QTableWidgetItem(item["status"])
+            email_item = QTableWidgetItem(item['email'])
+
+            self.user_table.setItem(row, 0, name_item)
+            self.user_table.setItem(row, 1, deposit_item)
+            self.user_table.setItem(row, 2, status_item) 
+            self.user_table.setItem(row, 3, email_item)
+
     def changeWage(self):
         userID = self.id_num.text()
         if userID == "1214":
@@ -52,7 +71,7 @@ class MainWindow(QMainWindow):
                 {'passID':userID},
                 {"$set": {'wage': new_wage}}
             )
-            self.loadData()
+            self.loadWorkerData()
         else:
             self.error_label.setText("Worker ID not found")
 
@@ -66,7 +85,7 @@ class MainWindow(QMainWindow):
             return
         elif workers.find_one({'passID': userID}):
             workers.find_one_and_delete({'passID': userID})
-            self.loadData()
+            self.loadWorkerData()
             return
         else:
             self.error_label.setText("User not found")
@@ -74,6 +93,53 @@ class MainWindow(QMainWindow):
     def hire(self):
         self.hiring = Hiring()
         self.hiring.show()
+
+    def promote(self):
+        self.promo = Promote()
+        self.promo.show()
+
+class Promote(QMainWindow):
+    def __init__(self):
+        super(Promote, self).__init__()
+        uic.loadUi("promote.ui", self)
+        self.setWindowTitle("Hiring...")
+        self.setFocus()
+
+        self.promo_btn.clicked.connect(self.promo)
+
+    def promo(self):
+        email = self.email.text()
+        if email == "w":
+            self.err_msg.setText("Store is not an option")
+            return
+        
+        if email != "" and (self.vip.isChecked() or self.reg.isChecked() or self.na.isChecked()):
+            if (users.find_one({'email': email})):
+                if self.vip.isChecked():
+                    users.update_one(
+                        {'email': email},
+                        {'$set': {'status': 'VIP'}}
+                    )
+                    self.close()
+                elif self.reg.isChecked():
+                    users.update_one(
+                        {'email': email},
+                        {'$set': {'status': 'Regular'}}
+                    )
+                    self.close()
+                else:
+                    users.update_one(
+                        {'email': email},
+                        {'$set': {'status': 'N/A'}}
+                    )
+                    self.close()
+            else:
+                self.err_msg.setText("Email not found")
+                return
+        else:
+            self.err_msg.setText("Use valid Credentials")
+            return
+
 
 class Hiring(QMainWindow):
     def __init__(self):
@@ -114,9 +180,9 @@ class Hiring(QMainWindow):
 
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    app.setWindowIcon(QtGui.QIcon("food_lover.png"))
-    window.show()
-    sys.exit(app.exec_())
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = ManagerWindow()
+#     app.setWindowIcon(QtGui.QIcon("food_lover.png"))
+#     window.show()
+#     sys.exit(app.exec_())

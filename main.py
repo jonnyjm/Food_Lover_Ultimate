@@ -34,7 +34,9 @@ class MainWindow(QMainWindow):
         user = user_data.find_one({"email": email})
 
         if user: # if user exists checks password and acc type, opening the appropriate window
-
+            if user['status'] == "N/A":
+                self.login_error.setText("User registration still processing...")
+                return
             if user["password"] == password: 
                 if user["type"] == "customer":
                     self.customer_login = UserLogin(email)
@@ -101,7 +103,8 @@ class RegisterWindow(QMainWindow):
                 "password": pw,
                 "type": "customer",
                 "complaints": 0,
-                "deposit": 0
+                "deposit": 0,
+                'status': "N/A"
             }
             user_data.insert_one(new_user)
             
@@ -126,41 +129,6 @@ class UserLogin(QMainWindow): # succesful user login window
             # Update QLabel with user name
             self.name.setText(user_info["name"])
 
-            # Create a standard item model
-            self.model = QStandardItemModel()
-
-            # Get all food items from the database
-            food_items = food_data.find()
-
-            # Add each food item to the model
-            for food_item in food_items:
-                item = QStandardItem(str(food_item))
-                self.model.appendRow(item)
-
-            # Set the model for the column view
-            self.columnView.setModel(self.model)
-
-        def filterFoodItems():
-            # Get the search text
-            search_text = self.textInput.text()
-
-            # Clear the model
-            self.model.clear()
-
-            # Get all food items from the database that match the search text
-            food_items = food_data.find({"$text": {"$search": search_text}})
-
-            # Add each matching food item to the model
-            for food_item in food_items:
-                item = QStandardItem(str(food_item))
-                self.model.appendRow(item)
-
-            # Set the model for the column view
-            self.columnView.setModel(self.model)
-        
-
-        # Connect search button to filter function
-        self.searchButton.clicked.connect(filterFoodItems)
 
         
         
@@ -194,11 +162,11 @@ class StoreLogin(QMainWindow): # store login that has access to all the differen
             QMessageBox.information(self, "Information", "ID is incorrect")
 
 # handles all the managers functions
-class ManagerWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi("manager.ui", self)
-        self.setWindowTitle("Manager Menu")
+# class ManagerWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         uic.loadUi("manager.ui", self)
+#         self.setWindowTitle("Manager Menu")
 
 
 if __name__ == '__main__':

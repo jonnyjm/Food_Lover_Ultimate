@@ -45,9 +45,15 @@
      <item>
       <widget class="QPushButton" name="manager_btn">
        <property name="styleSheet">
-        <string notr="true">background-color: black;
-color: white;
-border: 25px solid;</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 25px solid orange;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
         <string>Manager Menu</string>
@@ -57,9 +63,15 @@ border: 25px solid;</string>
      <item>
       <widget class="QPushButton" name="chef_btn">
        <property name="styleSheet">
-        <string notr="true">background-color: black;
-color: white;
-border: 25px solid</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 25px solid orange;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
         <string>Chef Menu</string>
@@ -69,9 +81,15 @@ border: 25px solid</string>
      <item>
       <widget class="QPushButton" name="delivery_btn">
        <property name="styleSheet">
-        <string notr="true">background-color: black;
-color: white;
-border: 25px solid</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 25px solid orange;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
         <string>Delivery Menu</string>
@@ -81,9 +99,15 @@ border: 25px solid</string>
      <item>
       <widget class="QPushButton" name="importer_btn">
        <property name="styleSheet">
-        <string notr="true">background-color: black;
-color: white;
-border: 25px solid</string>
+        <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 25px solid orange;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
        </property>
        <property name="text">
         <string>Importer Menu</string>

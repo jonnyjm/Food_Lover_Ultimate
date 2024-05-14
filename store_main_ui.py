@@ -28,27 +28,51 @@ class Ui_MainWindow(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.manager_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.manager_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid;")
+        self.manager_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 25px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
         self.manager_btn.setObjectName("manager_btn")
         self.verticalLayout.addWidget(self.manager_btn)
         self.chef_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.chef_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid")
+        self.chef_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 25px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
         self.chef_btn.setObjectName("chef_btn")
         self.verticalLayout.addWidget(self.chef_btn)
         self.delivery_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.delivery_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid")
+        self.delivery_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 25px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
         self.delivery_btn.setObjectName("delivery_btn")
         self.verticalLayout.addWidget(self.delivery_btn)
         self.importer_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.importer_btn.setStyleSheet("background-color: black;\n"
-"color: white;\n"
-"border: 25px solid")
+        self.importer_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 25px solid orange;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
         self.importer_btn.setObjectName("importer_btn")
         self.verticalLayout.addWidget(self.importer_btn)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
