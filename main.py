@@ -131,6 +131,7 @@ class UserLogin(QMainWindow):
 
         # Connect searchButton to the search function
         self.searchButton.clicked.connect(self.search)
+        
 
         # Display top four food items initially
         self.display_top_food_items()
@@ -144,6 +145,7 @@ class UserLogin(QMainWindow):
             # Set image, description, categories, and rating
             image_path = f"./foodImages/{food_item['name']}.jpeg"
             
+            getattr(self, f'buy{i}').clicked.connect(self.buy)
             getattr(self, f'food{i}').setText(food_item['name'])
             getattr(self, f'image{i}').setPixmap(QtGui.QPixmap(image_path))
             getattr(self, f'desc{i}').setPlainText(food_item["description"])
@@ -163,6 +165,9 @@ class UserLogin(QMainWindow):
 
         # Search food items in the database
         search_results = self.food_data.find({"$text": {"$search": query}}).sort("average_rating", -1).limit(4)
+        self.current_index = 0
+        self.all_food_items = list(self.food_data.find().sort("average_rating", -1))
+        
 
         # Iterate over search results and widgets together
         for i, food_item in enumerate(search_results, start=1):
@@ -179,11 +184,32 @@ class UserLogin(QMainWindow):
             getattr(self, f'rating{i}').setText(str(food_item["averageRating"]))
 
             getattr(self, f'Foodwidget{i}').show()
+    
+    def buy(self, user):
+        self.vote = UserVoting(user)
+        self.vote.show()
+        self.close()
+        
+        user_data = db['login_data']
+        user_info = user_data.find_one({"email": user})
+        self.food_data = db['food']
+
+        if user_info:
+            # Update QLabel with user name
+            self.name.setText(user_info["name"])
 
 
         
         
+class UserVoting(QMainWindow): 
+    def __init__(self, user):
+        super().__init__()
+        uic.loadUi("forum.ui", self)
+        self.setWindowTitle("Food Lover")
         
+               
+        
+         
         
 
                         
