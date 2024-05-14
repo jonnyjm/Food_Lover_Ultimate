@@ -147,6 +147,7 @@ class UserLogin(QMainWindow):
             # Set image, description, categories, and rating
             image_path = f"./foodImages/{food_item['name']}.jpeg"
             
+            getattr(self, f'food{i}').setText(food_item['name'])
             getattr(self, f'image{i}').setPixmap(QtGui.QPixmap(image_path))
             getattr(self, f'desc{i}').setText(food_item["description"])
             getattr(self, f'category1_{i}').setText(food_item["keywords"][0])
@@ -174,6 +175,7 @@ class UserLogin(QMainWindow):
             # Set image, description, categories, and rating
             image_path = f"./foodImages/{food_item['name']}.png"
             
+            getattr(self, f'food{i}').setText(food_item['name'])
             getattr(self, f'image{i}').setPixmap(QtGui.QPixmap(image_path))
             getattr(self, f'desc{i}').setText(food_item["description"])
             getattr(self, f'cat1_{i}').setText(food_item["keywords"][0])
