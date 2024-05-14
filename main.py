@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5 import QtGui
 from pymongo import MongoClient
+import uuid
 
 client = MongoClient("mongodb+srv://foodlover:CDOG2CI3GApYWkJv@foodlover.xagchl4.mongodb.net/")
 db = client['users']
@@ -119,10 +120,51 @@ class UserLogin(QMainWindow): # succesful user login window
         
         user_data = db['login_data']
         user_info = user_data.find_one({"email": user})
+        food_data = db['food']
 
         if user_info:
             # Update QLabel with user name
             self.name.setText(user_info["name"])
+
+            # Create a standard item model
+            self.model = QStandardItemModel()
+
+            # Get all food items from the database
+            food_items = food_data.find()
+
+            # Add each food item to the model
+            for food_item in food_items:
+                item = QStandardItem(str(food_item))
+                self.model.appendRow(item)
+
+            # Set the model for the column view
+            self.columnView.setModel(self.model)
+
+        def filterFoodItems():
+            # Get the search text
+            search_text = self.textInput.text()
+
+            # Clear the model
+            self.model.clear()
+
+            # Get all food items from the database that match the search text
+            food_items = food_data.find({"$text": {"$search": search_text}})
+
+            # Add each matching food item to the model
+            for food_item in food_items:
+                item = QStandardItem(str(food_item))
+                self.model.appendRow(item)
+
+            # Set the model for the column view
+            self.columnView.setModel(self.model)
+        
+
+        # Connect search button to filter function
+        self.searchButton.clicked.connect(filterFoodItems)
+
+        
+        
+        
         
 
                         
