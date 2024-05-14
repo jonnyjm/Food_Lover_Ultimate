@@ -26,4 +26,6 @@ test_data = [
 ]
 
 # Insert test data into the collection
-db['food'].insert_many(test_data)
+# db['food'].insert_many(test_data)
+db['food'].create_index([("name", "text")])
+
