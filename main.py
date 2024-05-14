@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5 import QtGui
 from pymongo import MongoClient
-
+from manager_win import *
 client = MongoClient("mongodb+srv://foodlover:CDOG2CI3GApYWkJv@foodlover.xagchl4.mongodb.net/")
 db = client['users']
 
@@ -33,7 +33,9 @@ class MainWindow(QMainWindow):
         user = user_data.find_one({"email": email})
 
         if user: # if user exists checks password and acc type, opening the appropriate window
-
+            if user['status'] == "N/A":
+                self.login_error.setText("User registration still processing...")
+                return
             if user["password"] == password: 
                 if user["type"] == "customer":
                     self.customer_login = UserLogin(email)
@@ -100,7 +102,8 @@ class RegisterWindow(QMainWindow):
                 "password": pw,
                 "type": "customer",
                 "complaints": 0,
-                "deposit": 0
+                "deposit": 0,
+                'status': "N/A"
             }
             user_data.insert_one(new_user)
             
@@ -152,11 +155,11 @@ class StoreLogin(QMainWindow): # store login that has access to all the differen
             QMessageBox.information(self, "Information", "ID is incorrect")
 
 # handles all the managers functions
-class ManagerWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi("manager.ui", self)
-        self.setWindowTitle("Manager Menu")
+# class ManagerWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         uic.loadUi("manager.ui", self)
+#         self.setWindowTitle("Manager Menu")
 
 
 if __name__ == '__main__':
