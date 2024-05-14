@@ -140,22 +140,24 @@ class UserLogin(QMainWindow):
         top_food_items = self.food_data.find().sort("average_rating", -1).limit(4)
 
         # List of food widgets
-        food_widgets = [self.FoodWidget1, self.FoodWidget2, self.FoodWidget3, self.FoodWidget4]
+        food_widgets = [self.Foodwidget1, self.Foodwidget2, self.Foodwidget3, self.Foodwidget4]
 
         # Iterate over food items and widgets together
-        for food_item, food_widget in zip(top_food_items, food_widgets):
+        for i, food_item in enumerate(top_food_items, start=1):
             # Set image, description, categories, and rating
-            food_widget.searchImage.setPixmap(QtGui.QPixmap(food_item["image_path"]))
-            food_widget.desc.setText(food_item["description"])
-            food_widget.cat1.setText(food_item["category1"])
-            food_widget.cat2.setText(food_item["category2"])
-            food_widget.cat3.setText(food_item["category3"])
-            food_widget.rating.setText(str(food_item["average_rating"]))
+            image_path = f"./foodImages/{food_item['name']}.jpeg"
+            
+            getattr(self, f'image{i}').setPixmap(QtGui.QPixmap(image_path))
+            getattr(self, f'desc{i}').setText(food_item["description"])
+            getattr(self, f'category1_{i}').setText(food_item["keywords"][0])
+            getattr(self, f'category2_{i}').setText(food_item["keywords"][1])
+            getattr(self, f'category3_{i}').setText(food_item["keywords"][2])
+            getattr(self, f'rating{i}').setText(str(food_item["averageRating"]))
 
         # Hide remaining widgets if there are less than four food items
-        for food_widget in food_widgets[len(top_food_items):]:
-            food_widget.hide()
-
+        for j in range(i+1, 5):
+            getattr(self, f'FoodWidget{j}').hide()
+            
     def search(self):
         # Get text from textInput
         query = self.textInput.toPlainText()
@@ -164,21 +166,24 @@ class UserLogin(QMainWindow):
         search_results = self.food_data.find({"$text": {"$search": query}}).sort("average_rating", -1).limit(4)
 
         # List of food widgets
-        food_widgets = [self.FoodWidget1, self.FoodWidget2, self.FoodWidget3, self.FoodWidget4]
+        food_widgets = [self.Foodwidget1, self.Foodwidget2, self.Foodwidget3, self.Foodwidget4]
 
         # Iterate over search results and widgets together
-        for food_item, food_widget in zip(search_results, food_widgets):
+        for i, food_item in enumerate(search_results, start=1):
+
             # Set image, description, categories, and rating
-            food_widget.searchImage.setPixmap(QtGui.QPixmap(food_item["image_path"]))
-            food_widget.desc.setText(food_item["description"])
-            food_widget.cat1.setText(food_item["category1"])
-            food_widget.cat2.setText(food_item["category2"])
-            food_widget.cat3.setText(food_item["category3"])
-            food_widget.rating.setText(str(food_item["average_rating"]))
+            image_path = f"./foodImages/{food_item['name']}.png"
+            
+            getattr(self, f'image{i}').setPixmap(QtGui.QPixmap(image_path))
+            getattr(self, f'desc{i}').setText(food_item["description"])
+            getattr(self, f'cat1_{i}').setText(food_item["keywords"][0])
+            getattr(self, f'cat2_{i}').setText(food_item["keywords"][1])
+            getattr(self, f'cat3_{i}').setText(food_item["keywords"][2])
+            getattr(self, f'rating{i}').setText(str(food_item["averageRating"]))
 
         # Hide remaining widgets if there are less than four search results
-        for food_widget in food_widgets[len(search_results):]:
-            food_widget.hide()
+        for j in range(i+1, 5):
+            getattr(self, f'FoodWidget{j}').hide()
 
 
 
