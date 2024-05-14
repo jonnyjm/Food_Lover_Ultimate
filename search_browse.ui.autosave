@@ -253,7 +253,7 @@ QPushButtonHover {
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="Foodwidget" native="true">
+   <widget class="QWidget" name="Foodwidget1" native="true">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -500,7 +500,7 @@ QPushButtonHover {
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="Foodwidget_2" native="true">
+   <widget class="QWidget" name="Foodwidget2" native="true">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -769,7 +769,7 @@ QPushButton {
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="Foodwidget_3" native="true">
+   <widget class="QWidget" name="Foodwidget3" native="true">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -1016,7 +1016,7 @@ QPushButton {
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="Foodwidget_4" native="true">
+   <widget class="QWidget" name="Foodwidget4" native="true">
     <property name="geometry">
      <rect>
       <x>590</x>

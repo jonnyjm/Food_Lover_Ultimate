@@ -115,7 +115,7 @@ class RegisterWindow(QMainWindow):
             
 
 
-class UserLogin(QMainWindow): # succesful user login window
+class UserLogin(QMainWindow): 
     def __init__(self, user):
         super().__init__()
         uic.loadUi("search_browse.ui", self)
@@ -123,11 +123,63 @@ class UserLogin(QMainWindow): # succesful user login window
         
         user_data = db['login_data']
         user_info = user_data.find_one({"email": user})
-        food_data = db['food']
+        self.food_data = db['food']
 
         if user_info:
             # Update QLabel with user name
             self.name.setText(user_info["name"])
+
+        # Connect searchButton to the search function
+        self.searchButton.clicked.connect(self.search)
+
+        # Display top four food items initially
+        self.display_top_food_items()
+
+    def display_top_food_items(self):
+        # Get top four food items sorted by average rating
+        top_food_items = self.food_data.find().sort("average_rating", -1).limit(4)
+
+        # List of food widgets
+        food_widgets = [self.FoodWidget1, self.FoodWidget2, self.FoodWidget3, self.FoodWidget4]
+
+        # Iterate over food items and widgets together
+        for food_item, food_widget in zip(top_food_items, food_widgets):
+            # Set image, description, categories, and rating
+            food_widget.searchImage.setPixmap(QtGui.QPixmap(food_item["image_path"]))
+            food_widget.desc.setText(food_item["description"])
+            food_widget.cat1.setText(food_item["category1"])
+            food_widget.cat2.setText(food_item["category2"])
+            food_widget.cat3.setText(food_item["category3"])
+            food_widget.rating.setText(str(food_item["average_rating"]))
+
+        # Hide remaining widgets if there are less than four food items
+        for food_widget in food_widgets[len(top_food_items):]:
+            food_widget.hide()
+
+    def search(self):
+        # Get text from textInput
+        query = self.textInput.toPlainText()
+
+        # Search food items in the database
+        search_results = self.food_data.find({"$text": {"$search": query}}).sort("average_rating", -1).limit(4)
+
+        # List of food widgets
+        food_widgets = [self.FoodWidget1, self.FoodWidget2, self.FoodWidget3, self.FoodWidget4]
+
+        # Iterate over search results and widgets together
+        for food_item, food_widget in zip(search_results, food_widgets):
+            # Set image, description, categories, and rating
+            food_widget.searchImage.setPixmap(QtGui.QPixmap(food_item["image_path"]))
+            food_widget.desc.setText(food_item["description"])
+            food_widget.cat1.setText(food_item["category1"])
+            food_widget.cat2.setText(food_item["category2"])
+            food_widget.cat3.setText(food_item["category3"])
+            food_widget.rating.setText(str(food_item["average_rating"]))
+
+        # Hide remaining widgets if there are less than four search results
+        for food_widget in food_widgets[len(search_results):]:
+            food_widget.hide()
+
 
 
         
