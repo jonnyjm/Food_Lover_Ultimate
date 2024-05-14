@@ -160,7 +160,7 @@ class Ui_MainWindow(object):
         self.hire_btn.setObjectName("hire_btn")
         self.verticalLayout_4.addWidget(self.hire_btn)
         self.worker_table = QtWidgets.QTableWidget(self.worker_tab)
-        self.worker_table.setGeometry(QtCore.QRect(0, 10, 591, 481))
+        self.worker_table.setGeometry(QtCore.QRect(0, 0, 591, 481))
         font = QtGui.QFont()
         font.setKerning(True)
         self.worker_table.setFont(font)
@@ -253,7 +253,7 @@ class Ui_MainWindow(object):
         self.user_table.verticalHeader().setSortIndicatorShown(False)
         self.user_table.verticalHeader().setStretchLastSection(False)
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.user_tab)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(620, 10, 160, 381))
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(620, 10, 160, 281))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -271,6 +271,21 @@ class Ui_MainWindow(object):
 "}")
         self.promote_btn.setObjectName("promote_btn")
         self.verticalLayout_3.addWidget(self.promote_btn)
+        self.acc_close_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.acc_close_btn.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.acc_close_btn.setObjectName("acc_close_btn")
+        self.verticalLayout_3.addWidget(self.acc_close_btn)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem2)
         self.ref_btn = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         self.ref_btn.setStyleSheet("QPushButton {\n"
 "    background-color: orange;\n"
@@ -285,10 +300,87 @@ class Ui_MainWindow(object):
         self.ref_btn.setObjectName("ref_btn")
         self.verticalLayout_3.addWidget(self.ref_btn)
         self.tabWidget.addTab(self.user_tab, "")
+        self.complaints = QtWidgets.QWidget()
+        self.complaints.setObjectName("complaints")
+        self.complaints_table = QtWidgets.QTableWidget(self.complaints)
+        self.complaints_table.setGeometry(QtCore.QRect(0, 0, 591, 481))
+        font = QtGui.QFont()
+        font.setKerning(True)
+        self.complaints_table.setFont(font)
+        self.complaints_table.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.complaints_table.setStyleSheet("QTableWidget {\n"
+"    border: 2px solid white;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"}")
+        self.complaints_table.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.complaints_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.complaints_table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.complaints_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.complaints_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.complaints_table.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.complaints_table.setObjectName("complaints_table")
+        self.complaints_table.setColumnCount(4)
+        self.complaints_table.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.complaints_table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.complaints_table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.complaints_table.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.complaints_table.setHorizontalHeaderItem(3, item)
+        self.verticalLayoutWidget_5 = QtWidgets.QWidget(self.complaints)
+        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(620, 40, 170, 251))
+        self.verticalLayoutWidget_5.setObjectName("verticalLayoutWidget_5")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_5)
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.open_complaint = QtWidgets.QPushButton(self.verticalLayoutWidget_5)
+        self.open_complaint.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.open_complaint.setObjectName("open_complaint")
+        self.verticalLayout_5.addWidget(self.open_complaint)
+        self.approve_complaint = QtWidgets.QPushButton(self.verticalLayoutWidget_5)
+        self.approve_complaint.setStyleSheet("QPushButton {\n"
+"    background-color: orange;\n"
+"    color: white;\n"
+"    border: 10px solid orange;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButtonHover {\n"
+"    background-color: rgb(57, 57, 57);\n"
+"}")
+        self.approve_complaint.setObjectName("approve_complaint")
+        self.verticalLayout_5.addWidget(self.approve_complaint)
+        self.tabWidget.addTab(self.complaints, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -322,5 +414,17 @@ class Ui_MainWindow(object):
         item = self.user_table.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Email"))
         self.promote_btn.setText(_translate("MainWindow", "Promote Customer"))
+        self.acc_close_btn.setText(_translate("MainWindow", "Close Account"))
         self.ref_btn.setText(_translate("MainWindow", "Refresh"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.user_tab), _translate("MainWindow", "Users"))
+        item = self.complaints_table.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "From"))
+        item = self.complaints_table.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "To"))
+        item = self.complaints_table.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Type"))
+        item = self.complaints_table.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Complaint ID"))
+        self.open_complaint.setText(_translate("MainWindow", "Open Complaint"))
+        self.approve_complaint.setText(_translate("MainWindow", "Approve/Decline Complaint"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.complaints), _translate("MainWindow", "Complaints"))

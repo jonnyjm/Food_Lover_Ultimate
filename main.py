@@ -4,7 +4,8 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5 import QtGui
 from pymongo import MongoClient
-import uuid
+from manager_win import *
+from chef_win import *
 
 client = MongoClient("mongodb+srv://foodlover:CDOG2CI3GApYWkJv@foodlover.xagchl4.mongodb.net/")
 db = client['users']
@@ -221,7 +222,7 @@ class StoreLogin(QMainWindow): # store login that has access to all the differen
         self.setWindowTitle("Food Lover")
 
         self.manager_btn.clicked.connect(self.manager_login)
-        # self.chef_btn.clicked.connect(self.chef_login)
+        self.chef_btn.clicked.connect(self.chef_login)
         # self.delivery_btn.clicked.connect(self.deliver_login)
         # self.importer_btn.clicked.connect(self.importer_login)
 
@@ -238,12 +239,15 @@ class StoreLogin(QMainWindow): # store login that has access to all the differen
         else:
             QMessageBox.information(self, "Information", "ID is incorrect")
 
-# handles all the managers functions
-# class ManagerWindow(QMainWindow):
-#     def __init__(self):
-#         super().__init__()
-#         uic.loadUi("manager.ui", self)
-#         self.setWindowTitle("Manager Menu")
+    def chef_login(self):
+        employee_id = self.getID()
+        person = workers.find_one({'passID':employee_id})
+        if person and person['position'] == 'Chef':
+            self.chef_win = ChefWin()
+            self.chef_win.show()
+            self.close()
+        else:
+            QMessageBox.information(self, "Information", "ID is incorrect")
 
 
 if __name__ == '__main__':
