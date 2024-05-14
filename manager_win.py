@@ -8,17 +8,19 @@ client = MongoClient("mongodb+srv://foodlover:CDOG2CI3GApYWkJv@foodlover.xagchl4
 db = client['users']
 users = db['login_data']
 workers = db['workers']
-
+complaints = db['worker_complaints']
 class ManagerWindow(QMainWindow):
 
     def __init__(self):
         super(ManagerWindow, self).__init__()
         uic.loadUi("manager.ui", self)
         manager = workers.find_one({'position': 'Manager'})
+        self.complain_arr = []
         self.setWindowTitle("Manager Menu")
         self.welcome_manager_txt.setText("Welcome, " + manager['name']) # type: ignore
         self.loadWorkerData()
         self.loadUserData()
+        self.loadComplains()
         self.setFocus()
 
         self.promote_btn.clicked.connect(self.promote)
@@ -27,6 +29,53 @@ class ManagerWindow(QMainWindow):
         self.hire_btn.clicked.connect(self.hire)
         self.refresh.clicked.connect(self.loadWorkerData)
         self.ref_btn.clicked.connect(self.loadUserData)
+        self.acc_close_btn.clicked.connect(self.closeAcc)
+        self.open_complaint.clicked.connect(self.openComplain)
+        self.approve_complaint.clicked.connect(self.complaintDec)
+
+    def complaintDec(self):
+        self.com = Complain()
+        self.com.show()
+
+    def openComplain(self):
+        complaint_num, dialog = QInputDialog.getText(self, "Complaint", "Enter complaint number:")
+        data = list(complaints.find())
+        if complaint_num.isnumeric() and int(complaint_num) <= len(data):
+            QMessageBox.information(self, "Complaint", str(self.complain_arr[int(complaint_num) - 1]))
+        else:
+            QMessageBox.information(self, "Complaint", "Please Enter a valid number")
+
+    def loadComplains(self):
+        data = list(complaints.find())
+
+        self.complaints_table.setRowCount(len(data))
+        for row, item in enumerate(data):
+            self.complain_arr.append(item['complaint'])
+            from_item = QTableWidgetItem(item['from'])
+            to_item = QTableWidgetItem(item['to'])
+            type_item = QTableWidgetItem(item['type'])
+            id_item = QTableWidgetItem(item['complaintID'])
+
+            self.complaints_table.setItem(row, 0, from_item)
+            self.complaints_table.setItem(row, 1, to_item) 
+            self.complaints_table.setItem(row, 2, type_item)
+            self.complaints_table.setItem(row, 3, id_item)
+
+    def closeAcc(self):
+        user_email, dialog = QInputDialog.getText(self, "Close Account", "Enter the email fo the account you want to close:")
+        if user_email == "w":
+            QMessageBox.information(self, "Information", "Can't close store account")
+            return
+        
+        user = users.find_one({'email': user_email})
+
+        if user:
+            users.delete_one({'email': user_email})
+            QMessageBox.information(self, "Information", "Account was closed and deposit cleared")
+            
+        else:
+            QMessageBox.information(self, "Information", "Account with this email doesn't exist")
+
     def loadWorkerData(self):
         data = list(workers.find())
 
@@ -177,12 +226,26 @@ class Hiring(QMainWindow):
         else:
             self.err_label.setText("This position doesn't exist")
             
+class Complain(QMainWindow):
+    def __init__(self):
+        super(Complain, self).__init__()
+        uic.loadUi("complaint_dec.ui", self)
+        
+        self.update_btn.clicked.connect(self.update)
+
+    def update(self):
+        num = self.lineEdit.text()
+        num_int = int(num)
+        data = list(complaints.find())
+        if  num_int <= len(data):
+            doc = complaints.find()
+            if self.decline.isChecked():
+                pass
 
 
-
-# if __name__ == '__main__':
-#     app = QApplication(sys.argv)
-#     window = ManagerWindow()
-#     app.setWindowIcon(QtGui.QIcon("food_lover.png"))
-#     window.show()
-#     sys.exit(app.exec_())
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = ManagerWindow()
+    app.setWindowIcon(QtGui.QIcon("food_lover.png"))
+    window.show()
+    sys.exit(app.exec_())

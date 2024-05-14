@@ -126,9 +126,7 @@ class UserLogin(QMainWindow): # succesful user login window
         if user_info:
             # Update QLabel with user name
             self.name.setText(user_info["name"])
-        
-
-                        
+                          
         
 class StoreLogin(QMainWindow): # store login that has access to all the different functions for workers
     def __init__(self):
@@ -152,14 +150,7 @@ class StoreLogin(QMainWindow): # store login that has access to all the differen
             self.manager_win.show()
             self.close()
         else:
-            QMessageBox.information(self, "Information", "ID is incorrect")
-
-# handles all the managers functions
-# class ManagerWindow(QMainWindow):
-#     def __init__(self):
-#         super().__init__()
-#         uic.loadUi("manager.ui", self)
-#         self.setWindowTitle("Manager Menu")
+            )QMessageBox.information(self, "Information", "ID is incorrect"
 
 
 if __name__ == '__main__':

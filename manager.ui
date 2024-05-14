@@ -95,7 +95,7 @@ QTabBar::tab:selected {
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <property name="iconSize">
      <size>
@@ -301,7 +301,7 @@ QPushButtonHover {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>10</y>
+        <y>0</y>
         <width>591</width>
         <height>481</height>
        </rect>
@@ -479,7 +479,7 @@ QTableWidget::item:selected {
         <x>620</x>
         <y>10</y>
         <width>160</width>
-        <height>381</height>
+        <height>281</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -503,6 +503,38 @@ QPushButtonHover {
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="acc_close_btn">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 10px solid orange;
+	border-radius: 12px;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
+         </property>
+         <property name="text">
+          <string>Close Account</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QPushButton" name="ref_btn">
          <property name="styleSheet">
           <string notr="true">QPushButton {
@@ -518,6 +550,138 @@ QPushButtonHover {
          </property>
          <property name="text">
           <string>Refresh</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="complaints">
+     <attribute name="title">
+      <string>Complaints</string>
+     </attribute>
+     <widget class="QTableWidget" name="complaints_table">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>591</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+
+QHeaderView::section {
+    background-color: orange;
+    color: white;
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: orange;
+    color: white;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>From</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>To</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Complaint ID</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>40</y>
+        <width>170</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="open_complaint">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 10px solid orange;
+	border-radius: 12px;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
+         </property>
+         <property name="text">
+          <string>Open Complaint</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="approve_complaint">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: orange;
+	color: white;
+	border: 10px solid orange;
+	border-radius: 12px;
+}
+
+QPushButtonHover {
+	background-color: rgb(57, 57, 57);
+}</string>
+         </property>
+         <property name="text">
+          <string>Approve/Decline Complaint</string>
          </property>
         </widget>
        </item>
